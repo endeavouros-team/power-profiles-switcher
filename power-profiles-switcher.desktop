@@ -1,0 +1,12 @@
+[Desktop Entry]
+Version=1.5
+Name=Power Profile Switcher
+Comment=switch power-profiles
+TryExec=ppd-switcher
+Exec=/usr/bin/ppd-switcher
+Icon=gnome-power-manager
+Terminal=false
+Type=Application
+Categories=power;system;
+Keywords=power;system;battery;
+
