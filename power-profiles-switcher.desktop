@@ -8,5 +8,5 @@ Icon=gnome-power-manager
 Terminal=false
 Type=Application
 Categories=power;system;
-Keywords=power;system;battery;
+Keywords=power;profile;system;battery;
 
