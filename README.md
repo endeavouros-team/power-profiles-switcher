@@ -3,7 +3,7 @@ a simple switcher for power-profiles (power-profiles-daemon)
 
 Starts a simple yad window where you can choose between the power-profiles and pressing switch button to activate:
 
-![switcher](https://raw.githubusercontent.com/endeavouros-team/power-profiles-switcher/main/ppd-switcher.png)
+
 
 It will validate your selection with desktop notification:
 
