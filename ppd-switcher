@@ -1,6 +1,7 @@
 #! /bin/bash
-powerprofilesctl get > /tmp/get
-get=$(cat /tmp/get)-profile
+
+get=$(powerprofilesctl get)-profile
+
 action=$(yad --width 310 --window-icon=gnome-power-manager --entry --title "Power Profile Switcher" \
     --image=gnome-power-manager \
     --button=" Switch:0" --button=" Quit" \
