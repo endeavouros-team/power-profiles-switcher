@@ -1,9 +1,10 @@
 #! /bin/bash
-
-action=$(yad --width 300 --window-icon=gnome-power-manager --entry --title "Power Profile Switcher" \
+powerprofilesctl get > /tmp/get
+get=$(cat /tmp/get)-profile
+action=$(yad --width 310 --window-icon=gnome-power-manager --entry --title "Power Profile Switcher" \
     --image=gnome-power-manager \
     --button=" Switch:0" --button=" Quit" \
-    --text "Choose your preferred profile:" \
+    --text "Currently using: $get \ Change to your preferred profile:" \
     --entry-text \
     " Balanced" " Power-Saver" " Performance")
 ret=$?
