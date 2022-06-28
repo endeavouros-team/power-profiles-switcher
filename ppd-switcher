@@ -18,9 +18,9 @@ if [[ $ret -eq 2 ]]; then
 fi
 
 case $action in
-    *) cmd="powerprofilesctl set balanced & notify-send -t 5000 -i power-profile-balanced 'Switched to balanced profile'" ;;
-    *) cmd="powerprofilesctl set power-saver & notify-send -t 5000  -i power-profile-power-saver 'Switched to power-saver profile'" ;;
-    *) cmd="powerprofilesctl set performance & notify-send -t 5000 -i power-profile-performance 'Switched to performance profile'" ;;
+    *) cmd="powerprofilesctl set balanced & notify-send -t 5000 -i power-profile-balanced-symbolic 'Switched to balanced profile'" ;;
+    *) cmd="powerprofilesctl set power-saver & notify-send -t 5000  -i power-profile-power-saver-symbolic 'Switched to power-saver profile'" ;;
+    *) cmd="powerprofilesctl set performance & notify-send -t 5000 -i power-profile-performance-symbolic 'Switched to performance profile'" ;;
     *) exit 1 ;;    
 esac
 
