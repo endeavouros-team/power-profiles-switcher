@@ -1,17 +1,28 @@
-name: Gitlab Mirror
+name: Sync to GitLab
 
-on: [push, delete]
+on:
+  push:
+    branches:
+      - '*'
+    tags:
+      - '*'
+  delete:
+
+permissions:
+  contents: read
 
 jobs:
-  to_gitlab:
+  sync:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
-      - uses: pixta-dev/repository-mirroring-action@v1
-        with:
-          target_repo_url:
-            git@gitlab.com:endeavouros-filemirror/power-profiles-switcher.git
-          ssh_private_key:
-            ${{ secrets.GITLAB_SYNC }}
+      - name: Mirror repository to GitLab
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITLAB_TOKEN: ${{ secrets.GITLAB_PAT }}
+        run: |
+          # Clone full bare mirror from GitHub (works for both public and private repos)
+          git clone --mirror "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" mirror.git
+          cd mirror.git
+          # Push exact 1:1 state (all branches, tags, and ref deletions) to GitLab
+          git push --mirror "https://oauth2:${GITLAB_TOKEN}@gitlab.com/endeavouros-filemirror/power-profiles-switcher.git"
+
